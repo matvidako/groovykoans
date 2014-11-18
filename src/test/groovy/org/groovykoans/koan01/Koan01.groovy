@@ -33,8 +33,8 @@ class Koan01 extends GroovyTestCase {
 
         // Assign our variables the required values to continue...
         // ------------ START EDITING HERE ----------------------
-        hello = "Hello"
         assertion = true
+        hello = "Hello"
         // ------------ STOP EDITING HERE  ----------------------
 
         assert assertion, 'Assign "true" to the "assertion" variable to proceed'
@@ -56,6 +56,7 @@ class Koan01 extends GroovyTestCase {
         String result
         // ------------ START EDITING HERE ----------------------
         result = "The size of the string '${greeting}' is ${greeting.size()}"
+
         // ------------ STOP EDITING HERE  ----------------------
 
         assert result == "The size of the string 'Hello George, how are you?' is 26"
@@ -69,7 +70,8 @@ class Koan01 extends GroovyTestCase {
         // Concatenate the two values of 'right' and 'left' into result to proceed using Groovy syntax
         def result
         // ------------ START EDITING HERE ----------------------
-        result = map['right'] + map['left']
+        result = map.left + map.right
+
         // ------------ STOP EDITING HERE  ----------------------
 
         assert result.toCharArray().size() == 16
@@ -91,6 +93,7 @@ class Koan01 extends GroovyTestCase {
         // Hint: you can use either Java's add(int, String) or Groovy's plus() method.
         // ------------ START EDITING HERE ----------------------
         groovyList = groovyList.plus(1, 'Queen')
+
         // ------------ STOP EDITING HERE  ----------------------
 
         // Note how Groovy allows you to compare the *content* of the lists
@@ -131,7 +134,8 @@ class Koan01 extends GroovyTestCase {
     private String createMessageForUser(UserService userService) {
         def message
         // ------------ START EDITING HERE ----------------------
-        message = "Hello ${userService.loggedInUser?.firstName ?: 'Anonymous'}!"
+        def userName = userService?.loggedInUser?.firstName ?: "Anonymous"
+        message = "Hello ${userName}!"
         // ------------ STOP EDITING HERE  ----------------------
 
         // Note how Groovy doesn't require the 'return' keyword! It will simply return the last expression.

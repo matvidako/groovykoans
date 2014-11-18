@@ -65,6 +65,7 @@ task sayHello << {
 test.dependsOn sayHello
 
 // launch browser if test failed. otherwise show that koan is complete
+/*
 gradle.taskGraph.afterTask { task, taskState ->
     if (task.name != 'test')
         return
@@ -75,7 +76,7 @@ gradle.taskGraph.afterTask { task, taskState ->
     } else {
         println "Koan is complete. Well done!"
     }
-}
+}*/
 
 // since we're running in quiet logging, show the user what tests are running
 tasks.withType(Test) { testTask ->
